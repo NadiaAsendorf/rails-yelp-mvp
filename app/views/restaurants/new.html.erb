@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-4">New restaurant</h1>
+        <%= simple_form_for @restaurant do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :phone_number %>
+          <%= f.input :category, collection: Restaurant::CATEGORIES, label_method: :capitalize, prompt: "Choose a cuisine" %>
+          <div class="d-flex gap-2 mt-3">
+            <%= f.submit "Create restaurant", class: "btn btn-danger" %>
+            <%= link_to "Cancel", restaurants_path, class: "btn btn-outline-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
